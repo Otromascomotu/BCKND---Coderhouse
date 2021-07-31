@@ -30,9 +30,7 @@ class Usuario {
   }
 
   getBooks(){
-    const libro = []
-      for (const libro of this.libros) {
-        libros.length(libro)
+    return this.libros.map((value) => value.book)
   }
 }
 

@@ -1,17 +1,11 @@
-const nombre = 'luis';
-const apellido = 'laverde';
-const mascotas = ['tico', 'sparkie', 'bobby', 'charlie', 'zeus', 'twinkie']
-const libros = [{'nostromo': 'josephConrad'}, {'padreRicoPadrePobre': 'robertKiyosaki'}, {'laOdisea': 'homero'}, {'otelo': 'williamShakespeare'}, {'divinaComedia': 'danteAlihieri'}, {'elCuervo': 'edgarAlanPoe'}];
-
-const libro = {book: 'ViajeAlCentroDeLaTierra', autor: 'JulioVerne'}
-
-const usuario = new Usuario('luke','skywalker',['acero', 'dorothy', 'beto', 'monti'], [{'elAlquimista': 'pauloCohelo'}, {'elCapital': 'karlMarx'}, {'elCodigoDaVinci': 'danBrown'}, {'caballoDeTroya': 'juanJoseBenitezLopez'}]);
+const usuario = new Usuario('luke','skywalker',['acero', 'dorothy', 'beto', 'monti'], [{titulo: 'elAlquimista', autor: 'pauloCohelo'}, {titulo: 'elCapital', autor: 'karlMarx'}, {titulo: 'elCodigoDaVinci', autor: 'danBrown'}, {titulo:'caballoDeTroya', autor: 'juanJoseBenitezLopez'}]);
 
 function Usuario(nombre, apellido, mascotas, libros){
   this.nombre = nombre;
   this.apellido = apellido;
   this.mascotas = mascotas;
   this.libros = libros;
+  
 }
 
 Usuario.prototype.getFullName = function(){
@@ -19,24 +13,30 @@ Usuario.prototype.getFullName = function(){
 }
 
 Usuario.prototype.addMascota = function(mascota){
-  mascotas.push(mascota);
+  //const mascotas = ['tico', 'sparkie', 'bobby', 'charlie', 'zeus', 'twinkie']
+  this.mascotas.push(mascota);
+  this.addMascota('rockie')
 }
 
 Usuario.prototype.getMascotas = function(){
-  return mascotas.length
+  return this.mascotas.length
 }
 
-Usuario.prototype.addBook = function({book, autor}){
-    libros.push({book, autor})
- }
+Usuario.prototype.addBook = function(book, autor){
+  //const libros = [{'nostromo': 'josephConrad'}, {'padreRicoPadrePobre': 'robertKiyosaki'}, {'laOdisea': 'homero'}, {'otelo': 'williamShakespeare'}, {'divinaComedia': 'danteAlihieri'}, {'elCuervo': 'edgarAlanPoe'}];
+  this.libros.push(book, autor)
+}
 
 Usuario.prototype.getBooks = function(){
+  //const libro = [{book: 'ViajeAlCentroDeLaTierra', autor: 'JulioVerne'}]
   return this.libros.map((value) => value.book)
 }
 
 
 console.log(usuario.getFullName());
-console.log(usuario.addMascota('rockie'));
+//console.log(usuario.addMascota('rockie'));
 console.log(usuario.getMascotas());
-console.log(usuario.addBook('Sherezade', 'AbdaLajab'));
+console.log(usuario.addBook('Sherezade','Anonimo'));
 console.log(usuario.getBooks());
+
+
