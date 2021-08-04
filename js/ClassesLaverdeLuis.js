@@ -1,6 +1,3 @@
-//Se crea un objeto llamado usuario a partir de la función constructora, con valores que permitan probar todos sus métodos
-let usuario = new Usuario('darth','vader', ['dumbo', 'mufasa', 'bambi', 'simba'], [{'it': 'stephenKing'}, {'elPrincipito': 'antoineDeSaintExupery'}, {'seda': 'alessandroBaricco'}, {'laMetamorfosis': 'franzKafka'}]);
-
 //Se declara una función de clase llamada Usuario que recibe como parámetros: nombre (string), apellido (string), libros (array de objetos) y mascotas (array de strings).
 class Usuario {
   constructor(nombre, apellido, mascotas, libros){
@@ -17,31 +14,35 @@ class Usuario {
   }
   
   addMascota(mascota){
-    let mascotas = ['tico', 'sparkie', 'bobby', 'charlie', 'zeus', 'twinkie'];
     //Se agrega una mascota (mascota) al arreglo de mascotas del usuario. No se retorna nada.
     this.mascotas.push(mascota)
   }
   
   getMascotas(){
     // Se retorna la cantidad de mascotas que tiene el usuario.
-    return mascotas.lenght
+    return this.mascotas.lenght
   }
   
   addBook(book, autor){
     //Se recibe un string 'book' y un string 'autor' y debe agregar un objeto: { nombre: book, autor: autor} al arreglo de libros del usuario. No debe retornar nada.
-    const libro = {book: 'ViajeAlCentroDeLaTierra', autor: 'JulioVerne'}
-    this.libros.push(book, autor)
+    const libro = {titulo: book, autor: autor}
+    this.libros.push({titulo:'Crepúsculo', autor:'Stephenie Meyer'})
   }
   
   getBooks(){
-    const libros = [{'nostromo': 'josephConrad'}, {'padreRicoPadrePobre': 'robertKiyosaki'}, {'laOdisea': 'homero'}, {'otelo': 'williamShakespeare'}, {'divinaComedia': 'danteAlihieri'}, {'elCuervo': 'edgarAlanPoe'}];
     //Se retorna un arreglo con sólo los nombres del arreglo de libros del usuario.
-    return this.libros.map((value) => value.book)
+    return this.libros.map((value) => value.titulo)
   }
 }
 
+//Se crea un objeto llamado usuario a partir de la función de clase, con valores que permitan probar todos sus métodos
+let usuario = new Usuario('darth','vader', ['dumbo', 'mufasa', 'bambi', 'simba'], [{titutlo:'it', autor:'stephenKing'}, {titulo:'elPrincipito', autor:'antoineDeSaintExupery'}, {titulo:'seda', autor:'alessandroBaricco'}, {titulo:'laMetamorfosis', autor: 'franzKafka'}]);
+
 console.log(usuario.getFullName());
+console.log(usuario.mascotas);
+console.log(usuario.addMascota());
 console.log(usuario.getMascotas());
+console.log(usuario.libros);
 console.log(usuario.getBooks());
 
 //Se hace el test completo del objeto instancaido en la línea 2, empleando la consola del navegador.
