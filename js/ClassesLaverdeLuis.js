@@ -20,13 +20,13 @@ class Usuario {
   
   getMascotas(){
     // Se retorna la cantidad de mascotas que tiene el usuario.
-    return this.mascotas.lenght
+    return this.mascotas.length
   }
   
   addBook(book, autor){
     //Se recibe un string 'book' y un string 'autor' y debe agregar un objeto: { nombre: book, autor: autor} al arreglo de libros del usuario. No debe retornar nada.
     const libro = {titulo: book, autor: autor}
-    this.libros.push({titulo:'Crepúsculo', autor:'Stephenie Meyer'})
+    this.libros.push(libro)
   }
   
   getBooks(){
@@ -36,13 +36,14 @@ class Usuario {
 }
 
 //Se crea un objeto llamado usuario a partir de la función de clase, con valores que permitan probar todos sus métodos
-let usuario = new Usuario('darth','vader', ['dumbo', 'mufasa', 'bambi', 'simba'], [{titutlo:'it', autor:'stephenKing'}, {titulo:'elPrincipito', autor:'antoineDeSaintExupery'}, {titulo:'seda', autor:'alessandroBaricco'}, {titulo:'laMetamorfosis', autor: 'franzKafka'}]);
+const usuario = new Usuario('darth','vader', ['dumbo', 'mufasa', 'bambi', 'simba'], [{titutlo:'it', autor:'stephenKing'}, {titulo:'elPrincipito', autor:'antoineDeSaintExupery'}, {titulo:'seda', autor:'alessandroBaricco'}, {titulo:'laMetamorfosis', autor: 'franzKafka'}]);
 
 console.log(usuario.getFullName());
-console.log(usuario.mascotas);
-console.log(usuario.addMascota());
 console.log(usuario.getMascotas());
-console.log(usuario.libros);
+usuario.addMascota('rockie');
+console.log(usuario.getMascotas());
+console.log(usuario.getBooks());
+usuario.addBook('Harry Potter', 'J.K. Rowlling')
 console.log(usuario.getBooks());
 
 //Se hace el test completo del objeto instancaido en la línea 2, empleando la consola del navegador.

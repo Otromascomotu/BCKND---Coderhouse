@@ -1,7 +1,3 @@
-//Se crea un objeto llamado usuario2 a partir de la función constructora, con valores que permitan probar todos sus métodos
-let usuario = new Usuario('luke','skywalker',['acero', 'dorothy', 'beto', 'monti'], [{titulo: 'elAlquimista', autor: 'pauloCohelo'}, {titulo: 'elCapital', autor: 'karlMarx'}, {titulo: 'elCodigoDaVinci', autor: 'danBrown'}, {titulo:'caballoDeTroya', autor: 'juanJoseBenitezLopez'}]);
-
-
 //Se declara una función constructora llamada Usuario que recibe como parámetros: nombre (string), apellido (string), libros (array de objetos) y mascotas (array de strings). 
 function Usuario(nombre, apellido, mascotas, libros){
   //Luego se implementan las propiedades instancia desde los valores recibidos como parámetro(argumento)
@@ -29,7 +25,7 @@ Usuario.prototype.getMascotas = function(){
 Usuario.prototype.addBook = function(book, autor){
   //Se recibe un string 'book' y un string 'autor' y debe agregar un objeto: { nombre: book, autor: autor} al arreglo de libros del usuario. No debe retornar nada.
   const libro = {titulo: book, autor: autor}
-  this.libros.push({titulo:'Crepúsculo', autor:'Stephenie Meyer'})
+  this.libros.push(libro)
 }
 
 Usuario.prototype.getBooks = function(){
@@ -37,14 +33,18 @@ Usuario.prototype.getBooks = function(){
   return this.libros.map((value) => value.titulo)
 }
 
+//Se crea un objeto llamado usuario a partir de la función constructora, con valores que permitan probar todos sus métodos
+const usuario = new Usuario('luke','skywalker',['acero', 'dorothy', 'beto', 'monti'], [{titulo: 'elAlquimista', autor: 'pauloCohelo'}, {titulo: 'elCapital', autor: 'karlMarx'}, {titulo: 'elCodigoDaVinci', autor: 'danBrown'}, {titulo:'caballoDeTroya', autor: 'juanJoseBenitezLopez'}]);
+
 console.log(usuario.getFullName());
-console.log(usuario.mascotas);
-console.log(usuario.addMascota());
 console.log(usuario.getMascotas());
-console.log(usuario.libros);
+usuario.addMascota('rockie');
+console.log(usuario.getMascotas());
+console.log(usuario.getBooks());
+usuario.addBook('Harry Potter', 'J.K. Rowlling')
 console.log(usuario.getBooks());
 
-//Se hace el test completo del objeto instancaido en la línea 2, empleando la consola del navegador.
+//Se hace el test completo del objeto instanciado empleando la consola del navegador.
 console.log(usuario)
 
 
